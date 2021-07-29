@@ -1,0 +1,194 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.header {
+  width: 375px;
+  height: 538px;
+  background-image: url('../images/mobile/image-header.jpg');
+  background-size: contain;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+    height: 426.67px;
+    background-image: url('../images/desktop/image-header.jpg');
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+    height: 800px;
+    background-size: cover;
+  }
+  & .navbar {
+    width: 327px;
+    height: 24px;
+    position: relative;
+    top: 32px;
+    margin-left: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include a.breakpoint(tablet) {
+      width: 720px;
+      height: 56px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 1352px;
+      height: 56px;
+      margin-left: 40px;
+    }
+    & .logo {
+      content: url('../images/logo.svg');
+      @include a.breakpoint(tablet) {
+        zoom: 118%;
+      }
+      @include a.breakpoint(desktop) {
+        zoom: 137%;
+      }
+    }
+    & .navbar-links {
+      display: none;
+      position: absolute;
+      top: 75px;
+      left: -2px;
+      width: 329px;
+      height: 305px;
+      background-color: $clr--nav-links;
+      z-index: 5;
+      @include a.breakpoint(tablet) {
+        display: block;
+        width: 467px;
+        height: 56px;
+        background-color: transparent;
+        z-index: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      &::before {
+        position: absolute;
+        content: '';
+        top: -24px;
+        left: 305px;
+        width: 24px;
+        height: 24px;
+        border-top: 24px solid transparent;
+        border-right: 24px solid $clr--nav-links;
+        @include a.breakpoint(tablet) {
+          display: none;
+        }
+      }
+      & ul {
+        margin-top: 39px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        @include a.breakpoint(tablet) {
+          flex-direction: row;
+          margin-top: 0;
+        }
+        & li {
+          margin-top: 32px;
+          &:first-child {
+            margin-top: 0;
+          }
+          @include a.breakpoint(tablet) {
+            margin-top: 0;
+          }
+        }
+        & a {
+          text-decoration: none;
+          font-family: $ff--barlow;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 25px;
+          letter-spacing: -0.14px;
+          color: $clr--dark-gray-blue;
+          cursor: pointer;
+          &:hover {
+            color: $clr--very-dark-gray-blue;
+          }
+          @include a.breakpoint(tablet) {
+            font-size: 18px;
+            color: $clr--white;
+            letter-spacing: -0.13px;
+          }
+        }
+      }
+    }
+    & .hamburger {
+      width: 24px;
+      height: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      & .bar {
+        width: 24px;
+        height: 2px;
+        background-color: $clr--white;
+        transition: all 100ms ease-in;
+      }
+      @include a.breakpoint(tablet) {
+        display: none;
+      }
+    }
+  }
+
+  .toggle .bar {
+    opacity: 0.5;
+  }
+
+  & .slogan {
+    width: 327px;
+    height: 98px;
+    margin-left: 24px;
+    position: relative;
+    top: 118px;
+    font-family: $ff--fraunces;
+    color: $clr--white;
+    font-size: 40px;
+    line-height: 49px;
+    font-weight: 900;
+    letter-spacing: 6.25px;
+    text-transform: uppercase;
+    text-align: center;
+    @include a.breakpoint(tablet) {
+      width: 644px;
+      height: 49px;
+      font-size: 40px;
+      line-height: 49px;
+      letter-spacing: 6.25px;
+      margin-left: 63px;
+      top: 60px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 750px;
+      height: 56px;
+      font-size: 56px;
+      line-height: 69px;
+      letter-spacing: 8.75px;
+      margin-left: 344.5px;
+      top: 135px;
+    }
+  }
+  & .down-arrow {
+    width: 30px;
+    height: 107.48px;
+    margin-left: 173px;
+    position: relative;
+    top: 176px;
+    content: url('../images/icon-arrow-down.svg');
+    @include a.breakpoint(tablet) {
+      width: 15px;
+      height: 59px;
+      margin-left: 376px;
+      top: 78px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 30px;
+      height: 107.48px;
+      margin-left: 705px;
+      top: 255px;
+    }
+  }
+}

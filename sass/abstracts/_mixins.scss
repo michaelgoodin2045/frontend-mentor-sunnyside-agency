@@ -1,0 +1,31 @@
+@mixin learn-more-button($color) {
+  position: relative;
+  &:hover {
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 15px;
+      content: '';
+      width: 137px;
+      height: 10px;
+      background-color: $color;
+      border-radius: 28px;
+      opacity: 1;
+      transition: all 300ms;
+      z-index: -1;
+    }
+  }
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    content: '';
+    width: 137px;
+    height: 10px;
+    background-color: $color;
+    border-radius: 28px;
+    opacity: 0.25;
+    transition: all 300ms;
+    z-index: -1;
+  }
+}

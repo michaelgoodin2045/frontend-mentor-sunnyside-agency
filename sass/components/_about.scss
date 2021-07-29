@@ -1,0 +1,144 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.about {
+  width: 375px;
+  height: 1498px;
+
+  display: grid;
+  grid-template:
+    [row1-start] 'image-one' 312px [row1-end]
+    [row2-start] 'text-one' 437px [row2-end]
+    [row3-start] 'image-two' 312px [row3-end]
+    [row4-start] 'text-two' 437px [row4-end]
+    / 375px;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+    height: 640px;
+    grid-template:
+      [row1-start] 'text-one image-one' 50%[row1-end]
+      [row2-start] 'image-two text-two' 50% [row2-end]
+      / 50% 50%;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+    height: 1200px;
+  }
+  & .image-box {
+    width: 375px;
+    height: 312px;
+    @include a.breakpoint(tablet) {
+      width: 384px;
+      height: 320px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 720px;
+      height: 600px;
+    }
+  }
+  & .text-box {
+    width: 375px;
+    height: 437px;
+    @include a.breakpoint(tablet) {
+      width: 384px;
+      height: 320px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 720px;
+      height: 600px;
+    }
+
+    & .card {
+      width: 327px;
+      height: 309px;
+      margin-top: 64px;
+      margin-left: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @include a.breakpoint(tablet) {
+        width: 275px;
+        height: 240px;
+        margin-top: 40px;
+        margin-left: 0;
+        align-items: flex-start;
+      }
+      @include a.breakpoint(desktop) {
+        width: 445px;
+        height: 285px;
+        margin-top: 158px;
+      }
+      & h1 {
+        font-family: $ff--fraunces;
+        font-size: 32px;
+        letter-spacing: -0.23px;
+        text-align: center;
+        font-weight: 900;
+        color: $clr--desat-dark-blue;
+        @include a.breakpoint(tablet) {
+          font-size: 28px;
+          letter-spacing: -0.21px;
+          text-align: left;
+        }
+        @include a.breakpoint(desktop) {
+          font-size: 40px;
+          letter-spacing: -0.29px;
+          text-align: left;
+        }
+      }
+      & p {
+        font-family: $ff--barlow;
+        font-size: 18px;
+        line-height: 30px;
+        letter-spacing: -0.13px;
+        text-align: center;
+        font-weight: 600;
+        color: $clr--dark-gray-blue;
+        margin-bottom: 8px;
+        @include a.breakpoint(tablet) {
+          font-size: 14px;
+          text-align: left;
+          line-height: 25px;
+        }
+        @include a.breakpoint(desktop) {
+          font-size: 18px;
+          text-align: left;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  & .image-one {
+    grid-area: image-one;
+    content: url('../images/mobile/image-transform.jpg');
+    @include a.breakpoint(desktop) {
+      content: url('../images/desktop/image-transform.jpg');
+    }
+  }
+  & .image-two {
+    grid-area: image-two;
+    content: url('../images/mobile/image-stand-out.jpg');
+    @include a.breakpoint(desktop) {
+      content: url('../images/desktop/image-stand-out.jpg');
+    }
+  }
+  & .text-one {
+    grid-area: text-one;
+    @include a.breakpoint(tablet) {
+      margin-left: 65px;
+    }
+    @include a.breakpoint(desktop) {
+      margin-left: 165px;
+    }
+  }
+  & .text-two {
+    grid-area: text-two;
+    @include a.breakpoint(tablet) {
+      margin-left: 44px;
+    }
+    @include a.breakpoint(tablet) {
+      margin-left: 110px;
+    }
+  }
+}

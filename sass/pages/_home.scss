@@ -1,0 +1,18 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.container {
+  width: 375px;
+  height: 5219px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+    height: auto;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+  }
+}

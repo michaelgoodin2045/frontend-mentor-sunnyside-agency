@@ -1,0 +1,172 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.testimonials {
+  width: 375px;
+  height: 1258px;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+    height: auto;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+    height: 777px;
+  }
+  & .testimonials-box {
+    width: 327px;
+    height: 1108px;
+    margin-left: 24px;
+    margin-top: 64px;
+    display: grid;
+    grid-template:
+      [row1-start] 'title' 20px [row1-end]
+      [row2-start] 'test-one' auto [row2-end]
+      [row3-start] 'test-two' auto [row3-end]
+      [row4-start] 'test-three' auto [row4-end]
+      / 327px;
+    row-gap: 64px;
+    @include a.breakpoint(tablet) {
+      width: 665px;
+      height: 770px;
+      margin-left: 51px;
+      grid-template:
+        [row1-start] '.... .... title title title .... ....' 20px [row1-end]
+        [row2-start] 'test-one test-one test-one .... test-two test-two test-two' 325px [row2-end]
+        [row3-start] '.... .... test-three test-three -test-three .... ....' 325px [row3-end]
+        / 95px 95px 95px 95px 95px 95px 95px;
+      row-gap: 50px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 1110px;
+      height: 457px;
+      margin-top: 160px;
+      margin-left: 165px;
+      grid-template:
+        [row1-start] '.... title ....' 25px [row1-end]
+        [row2-start] 'test-one test-two test-three' auto [row2-end]
+        / 1fr 1fr 1fr;
+      row-gap: 81px;
+      column-gap: 30px;
+    }
+    & .testimonials-title {
+      width: 279px;
+      height: 20px;
+      font-family: $ff--fraunces;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 20px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: $clr--gray-blue;
+      margin-left: 24px;
+      grid-area: title;
+      @include a.breakpoint(tablet) {
+        margin-left: 0;
+      }
+      @include a.breakpoint(desktop) {
+        width: 349px;
+        font-size: 20px;
+        line-height: 25px;
+        letter-spacing: 5px;
+        margin-left: -5px;
+        //text-align: center;
+      }
+    }
+    & .testimonial {
+      width: 327px;
+      height: auto;
+      @include a.breakpoint(tablet) {
+        width: 285px;
+      }
+      @include a.breakpoint(desktop) {
+        width: 350px;
+      }
+      & .test-image img {
+        margin-left: 127px;
+        border-radius: 50%;
+        width: 72px;
+        height: 72px;
+        margin-bottom: 32px;
+        @include a.breakpoint(tablet) {
+          margin-left: 105px;
+        }
+        @include a.breakpoint(desktop) {
+          margin-left: 139px;
+          margin-bottom: 58px;
+        }
+      }
+      & .test-blurb {
+        width: 327px;
+        height: auto;
+        font-family: $ff--barlow;
+        color: $clr--very-dark-gray-blue;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 32px;
+        letter-spacing: -0.13px;
+        text-align: center;
+        margin-bottom: 32px;
+        @include a.breakpoint(tablet) {
+          width: 285px;
+          font-size: 16px;
+          line-height: 30px;
+        }
+        @include a.breakpoint(desktop) {
+          width: 350px;
+          font-size: 18px;
+          line-height: 32px;
+          margin-bottom: 69px;
+          //margin-left: 10px;
+        }
+      }
+      & .test-person {
+        width: 203px;
+        height: 56px;
+        margin-left: 62px;
+        text-align: center;
+        @include a.breakpoint(tablet) {
+          margin-left: 41px;
+        }
+        @include a.breakpoint(desktop) {
+          margin-left: 65px;
+        }
+        & .test-name {
+          width: auto;
+          height: 22px;
+          font-family: $ff--fraunces;
+          font-size: 18px;
+          font-weight: 900;
+          line-height: 22px;
+          letter-spacing: -0.13px;
+          color: $clr--desat-dark-blue;
+          margin-bottom: 9px;
+          @include a.breakpoint(tablet) {
+            font-size: 16px;
+          }
+          @include a.breakpoint(desktop) {
+            font-size: 18px;
+          }
+        }
+        & .test-job {
+          width: auto;
+          height: 25px;
+          font-family: $ff--barlow;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 25px;
+          letter-spacing: -0.1px;
+          color: $clr--gray-blue;
+        }
+      }
+    }
+    & .test-one {
+      grid-area: test-one;
+    }
+    & .test-two {
+      grid-area: test-two;
+    }
+    & .test-three {
+      grid-area: test-three;
+    }
+  }
+}

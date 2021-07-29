@@ -1,0 +1,53 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.btn {
+  width: 137px;
+  height: 25px;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: $ff--fraunces;
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 1px;
+  color: $clr--desat-dark-blue;
+  text-transform: uppercase;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.contact {
+  border: none;
+  border-radius: 28px;
+  outline: none;
+  width: 140px;
+  height: 56px;
+  background: $clr--yellow;
+  font-family: $ff--fraunces;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -0.11px;
+  text-transform: uppercase;
+  color: $clr--desat-dark-blue;
+  cursor: pointer;
+  @include a.breakpoint(tablet) {
+    background: $clr--white;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: $clr--white;
+  }
+}
+
+.btn-one {
+  @include a.learn-more-button($clr--yellow);
+}
+
+.btn-two {
+  @include a.learn-more-button($clr--pink);
+}

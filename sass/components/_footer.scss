@@ -1,0 +1,93 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.footer {
+  width: 375px;
+  height: 350px;
+  background-color: $clr--footer;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+  }
+  & .footer-box {
+    width: 297px;
+    height: 206px;
+    margin-left: 39px;
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @include a.breakpoint(tablet) {
+      margin-left: 235px;
+      margin-top: 72px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 300px;
+      margin-left: 570px;
+    }
+    & .footer-title {
+      width: 170px;
+      height: 30px;
+      content: url('../images/logo-green.svg');
+    }
+    & .footer-links {
+      width: 297px;
+      height: 25px;
+      padding-bottom: 24px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      & a {
+        color: $clr--mod-dark-cyan;
+        text-decoration: none;
+        font-family: $ff--barlow;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+        letter-spacing: -0.13px;
+        &:hover {
+          color: $clr--white;
+        }
+      }
+    }
+    & .footer-icons {
+      width: 164px;
+      height: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      & .icon {
+        display: inline-block;
+      }
+      & a .icon-facebook {
+        content: url('../images/icon-facebook.svg');
+        &:hover {
+          content: url('../images/icon-facebook-white.svg');
+        }
+      }
+      & a .icon-ig {
+        content: url('../images/icon-instagram.svg');
+        &:hover {
+          content: url('../images/icon-instagram-white.svg');
+        }
+      }
+      & a .icon-twitter {
+        content: url('../images/icon-twitter.svg');
+        &:hover {
+          content: url('../images/icon-twitter-white.svg');
+        }
+      }
+      & a .icon-pinterest {
+        content: url('../images/icon-pinterest.svg');
+        &:hover {
+          content: url('../images/icon-pinterest-white.svg');
+        }
+      }
+    }
+  }
+}

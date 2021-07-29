@@ -1,0 +1,118 @@
+@use '../base/'as *;
+@use '../abstracts/'as a;
+
+.services {
+  width: 375px;
+  height: 1200px;
+  display: grid;
+  grid-template:
+    [row1-start] 'design' 600px [row1-end]
+    [row2-start] 'photo' 600px [row2-end]
+    / 375px;
+  @include a.breakpoint(tablet) {
+    width: 768px;
+    height: 320px;
+    grid-template:
+      [row1-start] 'design photo' 100% [row1-end]
+      / 50% 50%;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1440px;
+    height: 600px;
+  }
+  & .service {
+    width: 375px;
+    height: 600px;
+    @include a.breakpoint(tablet) {
+      width: 384px;
+      height: 320px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 720px;
+      height: 600px;
+    }
+    & .service-box {
+      width: 327px;
+      height: 143px;
+      margin-left: 24px;
+      margin-top: 398px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      @include a.breakpoint(tablet) {
+        width: 250px;
+        height: 100px;
+        margin-left: 67px;
+        margin-top: 190px;
+      }
+      @include a.breakpoint(desktop) {
+        width: 339px;
+        height: 143px;
+        margin-left: 191px;
+        margin-top: 398px;
+      }
+      & .service-title {
+        font-family: $ff--fraunces;
+        font-size: 28px;
+        font-weight: 900;
+        line-height: 35px;
+        letter-spacing: -0.2px;
+        @include a.breakpoint(tablet) {
+          font-size: 24px;
+          line-height: 30px;
+          letter-spacing: -0.18px;
+        }
+        @include a.breakpoint(desktop) {
+          font-size: 28px;
+          line-height: 35px;
+          letter-spacing: -0.2px;
+        }
+      }
+      & .service-blurb {
+        font-family: $ff--barlow;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 27px;
+        letter-spacing: -0.11px;
+        text-align: center;
+        @include a.breakpoint(tablet) {
+          font-size: 12px;
+          line-height: 21px;
+          letter-spacing: -0.09px;
+        }
+        @include a.breakpoint(desktop) {
+          font-size: 16px;
+          line-height: 27px;
+          letter-spacing: -0.11px;
+        }
+      }
+    }
+  }
+  & .design-services {
+    grid-area: design;
+    background: url('../images/mobile/image-graphic-design.jpg');
+    background-size: cover;
+    @include a.breakpoint(tablet) {
+      background: url('../images/desktop/image-graphic-design.jpg');
+      background-size: contain;
+    }
+    & .service-box {
+      color: $clr--desat-dark-cyan;
+    }
+  }
+  & .photo-services {
+    grid-area: photo;
+    background: url('../images/mobile/image-photography.jpg');
+    background-size: cover;
+    @include a.breakpoint(tablet) {
+      background: url('../images/desktop/image-photography.jpg');
+      background-size: contain;
+    }
+    & {
+      .service-box {
+        color: $clr--dark-blue;
+      }
+    }
+  }
+}
